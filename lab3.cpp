@@ -58,7 +58,7 @@ void id(Figura* fig)
 class WektorFigur
 {
 public:
-    WektorFigur() : licznik(0) { tab = new Figura[10]; }
+    WektorFigur() : licznik{0} { tab = new Figura[10]; }
     Figura* operator[](int index)
     {
         if (index < licznik) {
@@ -71,6 +71,7 @@ public:
     ~WektorFigur() { delete[] tab; }
     void push(const Figura& nowa_figura)
     {
+
         tab[licznik] = nowa_figura;
         licznik      = licznik + 1;
     }
@@ -85,13 +86,35 @@ private:
     int     licznik;
     Figura* tab;
 };
+class FabrykaFigur
+{
+public:
+    Figura* operator()(const std::string& str, double n)
+    {
+        if (str == "Kwadrat") {
+            Kwadrat{n};
+        }
+        else {
+            if (str == "Kolo") {
+                Kolo{n};
+            }
+            else {
+                return nullptr;
+            }
+        }
+    }
+
+private:
+};
 
 int main()
 {
-    Kwadrat a1(5);
-    Kolo    b1(3);
-    Kwadrat c3(7);
-    Figura  f1(4);
+    Kwadrat      a1(5);
+    Kolo         b1(3);
+    Kwadrat      c3(7);
+    Figura       f1(4);
+    FabrykaFigur fab;
+    fab(Kolo, 5);
     // Figura  c0 = static_cast< Figura >(a1);
     // c0.id();
     // a1.id();
@@ -104,7 +127,8 @@ int main()
     // id(*f);
     // delete f;
     // wektorfigur testy
-    WektorFigur w1;
+
+    /*WektorFigur w1;
     w1.push(a1);
     w1.push(b1);
     w1.push(c3);
@@ -112,5 +136,5 @@ int main()
     id(w1[1]);
     id(w1[2]);
     id(w1[5]);
-    id(&a1);
+    id(&a1);*/
 }
