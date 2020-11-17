@@ -4,7 +4,7 @@
 
 unsigned int transportujFlota(unsigned int towar)
 {
-    if(towar = 0){
+    if(towar == 0){
        return 0;
     }else{
       int przewieziony_towar = 0; 
