@@ -109,20 +109,23 @@ private:
 
 int main()
 {
-    Kwadrat      a1(5);
-    Kolo         b1(3);
-    Kwadrat      c3(7);
-    Figura       f1(4);
-    FabrykaFigur fab;
-    fab(Kolo, 5);
+    Kwadrat a1(5);
+    Kolo    b1(3);
+    Kwadrat c3(7);
+    Figura  f1(4);
+    // FabrykaFigur fab;
+    // fab(Kolo, 5);
+    // if (dynamic_cast< Kwadrat >(a1) == a1)
     // Figura  c0 = static_cast< Figura >(a1);
     // c0.id();
     // a1.id();
     // id(a1);
     // id(c0);
     // rzutowanie
-    // Figura* f = new Kwadrat{};
-    // f         = dynamic_cast< Kwadrat* >(f);
+    Figura* f;
+    f = new Kolo{};
+    f = dynamic_cast< Kwadrat* >(f);
+
     // f         = dynamic_cast< Kolo* >(f); error
     // id(*f);
     // delete f;

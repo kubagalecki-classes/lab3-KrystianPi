@@ -9,12 +9,11 @@ unsigned int transportujFlota(unsigned int towar)
     }else{
       Stocznia stocznia{};
       Statek* s1 = stocznia(); 
-      s1.transportuj();
       int przewieziony_towar = 0; 
       int liczba_zaglowcow = 0;
       while(przewieziony_towar<towar){
         przewieziony_towar = s1->transportuj()+przewieziony_towar; 
-        if( dynamic_cast<Zaglowiec*>(s1)==Zaglowiec* ){
+        if( s1 == dynamic_cast<Zaglowiec*>(s1)){
             liczba_zaglowcow ++; 
         }
       }
