@@ -13,9 +13,10 @@ unsigned int transportujFlota(unsigned int towar)
         Stocznia stocznia{};
         Statek* s1 = stocznia(); 
         przewieziony_towar = s1->transportuj()+przewieziony_towar; 
-        if( s1 == dynamic_cast<Zaglowiec*>(s1)){
+        if(dynamic_cast<Zaglowiec*>(s1)){
             liczba_zaglowcow ++; 
         }
+        delete s1; 
       }
     return liczba_zaglowcow; 
     }
